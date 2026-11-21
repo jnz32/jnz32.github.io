@@ -53,6 +53,8 @@
     color: var(--dim);
   }
   p { margin: 0 0 1em; }
+  #about p { text-align: justify; hyphens: auto; -webkit-hyphens: auto; }
+  #about strong { font-weight: 500; }
 
   .rows { list-style: none; margin: 0; padding: 0; }
   .rows li {
@@ -68,6 +70,7 @@
   .rows .r { color: var(--dim); text-align: right; }
   .rows .d { grid-column: 1 / -1; color: var(--dim); }
   .rows .role { grid-column: 1 / -1; color: var(--dim); }
+  .rows .kw { grid-column: 1 / -1; margin-top: 3px; font: 400 12px/1.5 "Geist Mono", ui-monospace, monospace; color: var(--dim); }
   .rows .unit { grid-column: 1 / -1; font-size: 13px; line-height: 1.4; color: var(--dim); }
   .rows .au { grid-column: 1 / -1; color: var(--dim); font-size: 13.5px; }
   .rows .au b { color: var(--fg); font-weight: 500; }
@@ -120,8 +123,8 @@
   <main>
     <section id="about">
       <h2>About</h2>
-      <p>I'm a scientist and engineer working across the hardware and software of optical sensing, imaging and spectroscopy systems.</p>
-      <p>We are approaching a future where intelligence is abundant, but limited by the lack of interaction with and feedback from the physical world. My interests are in building agentic instruments, sensors, and imaging systems to accelerate science, medicine, and security.</p>
+      <p><strong>We are approaching a future where intelligence is abundant, but limited by the lack of interaction with and feedback from the physical world.</strong> I'm a scientist and engineer working across the hardware and software of optical sensing, imaging, and spectroscopy systems.</p>
+      <p>My interests are in building the next generation of agent-native instruments, sensors, and imaging systems to accelerate science, medicine, and security.</p>
     </section>
 
     <section id="experience">
@@ -131,36 +134,42 @@
           <span>Pendar Technologies</span>
           <span class="r">2024–now</span>
           <span class="role">Senior Scientist</span>
+          <span class="kw">Raman spectroscopy, clinical devices, screening software, Monte Carlo</span>
         </li>
         <li>
           <span>PathAI</span>
           <span class="r">2022–2023</span>
           <span class="unit">Imaging Team</span>
           <span class="role">Contractor</span>
+          <span class="kw">Digital pathology, whole-slide imaging, computer vision</span>
         </li>
         <li>
           <span>Massachusetts Institute of Technology</span>
           <span class="r">2017–2024</span>
           <span class="unit">Biomedical Optical Imaging and Biophotonics Group</span>
           <span class="role">PhD</span>
+          <span class="kw">Capsule endoscopy, swept-source OCT, clinical studies</span>
         </li>
         <li>
           <span>Baylor College of Medicine</span>
           <span class="r">2016</span>
           <span class="unit">Department of Urology</span>
           <span class="role">Intern</span>
+          <span class="kw">Genetics, immunofluorescence, electron microscopy, molecular biology</span>
         </li>
         <li>
           <span>Genentech</span>
           <span class="r">2015–2016</span>
           <span class="unit">Pharma Global Technical Development</span>
           <span class="role">Intern</span>
+          <span class="kw">Cell culture, bioprocess development, CHO and <i>E. coli</i></span>
         </li>
         <li>
           <span>The University of Texas at Austin</span>
           <span class="r">2014–2017</span>
           <span class="unit">Biophotonics Laboratory</span>
           <span class="role">Research Assistant</span>
+          <span class="kw">Raman spectroscopy, SERS nanoparticles, confocal microscopy, LabVIEW</span>
         </li>
       </ul>
     </section>
