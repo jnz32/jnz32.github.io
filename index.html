@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Jason Zhang</title>
-<meta name="description" content="Jason Zhang. Senior Scientist at Pendar Technologies working on Raman spectroscopy, optical instruments and real-time software.">
+<meta name="description" content="Jason Zhang. Scientist and engineer building optical sensing, imaging and spectroscopy systems. Senior Scientist at Pendar Technologies; PhD in Electrical Engineering and Computer Science from the Massachusetts Institute of Technology.">
 <meta name="color-scheme" content="light dark">
 <link rel="icon" type="image/png" href="favicon-light.png" media="(prefers-color-scheme: light)">
 <link rel="icon" type="image/png" href="favicon-dark.png" media="(prefers-color-scheme: dark)">
@@ -46,9 +46,9 @@
   h1 { margin: 0; font-size: 15px; font-weight: 500; }
   .intro p { margin: 0; color: var(--dim); }
 
-  section { margin: 0 0 72px; }
+  section { margin: 0 0 52px; }
   h2 {
-    margin: 0 0 20px;
+    margin: 0 0 10px;
     font: 400 12px/1.6 "Geist Mono", ui-monospace, monospace;
     color: var(--dim);
   }
@@ -58,18 +58,28 @@
   .rows li {
     display: grid;
     grid-template-columns: 1fr auto;
-    gap: 2px 24px;
-    padding: 12px 0;
+    gap: 0 24px;
+    padding: 7px 0;
+    line-height: 1.45;
     border-top: 1px solid var(--rule);
   }
-  .rows li:last-child { border-bottom: 1px solid var(--rule); }
+  .rows li:last-child, .rows li:has(+ li[hidden]) { border-bottom: 1px solid var(--rule); }
+  .rows li[hidden] { display: none; }
   .rows .r { color: var(--dim); text-align: right; }
   .rows .d { grid-column: 1 / -1; color: var(--dim); }
-  .rows .ph { color: var(--dim); }
+  .rows .role { grid-column: 1 / -1; color: var(--dim); }
+  .rows .unit { grid-column: 1 / -1; font-size: 13px; line-height: 1.4; color: var(--dim); }
+  .rows .au { grid-column: 1 / -1; color: var(--dim); font-size: 13.5px; }
+  .rows .au b { color: var(--fg); font-weight: 500; }
 
-  .kit { margin: 0; display: grid; grid-template-columns: 96px 1fr; gap: 6px 24px; }
-  .kit dt { color: var(--dim); }
-  .kit dd { margin: 0; }
+
+
+  .more {
+    margin-top: 16px; padding: 0; border: 0; background: none; cursor: pointer;
+    font: inherit; color: var(--dim); text-decoration: underline; text-decoration-color: var(--rule); text-underline-offset: 3px;
+  }
+  .more:hover { color: var(--fg); text-decoration-color: currentColor; }
+
 
   footer {
     display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap;
@@ -78,12 +88,9 @@
   }
 
   @media (max-width: 520px) {
-    nav { gap: 14px; font-size: 14px; }
+    nav { gap: 12px; font-size: 13px; flex-wrap: nowrap; overflow-x: auto; white-space: nowrap; scrollbar-width: none; }
     header.intro { margin: 72px 0 64px; }
-    .rows li { grid-template-columns: 1fr; }
-    .rows .r { text-align: left; }
-    .kit { grid-template-columns: 1fr; gap: 0; }
-    .kit dd { margin-bottom: 10px; }
+    .rows li { gap: 0 16px; }
   }
 </style>
 </head>
@@ -93,8 +100,9 @@
   <nav aria-label="Sections">
     <a href="#top" aria-current="page">Home</a>
     <a href="#about">About</a>
-    <a href="#background">Background</a>
-    <a href="#toolkit">Toolkit</a>
+    <a href="#experience">Experience</a>
+    <a href="#education">Education</a>
+    <a href="#publications">Publications</a>
   </nav>
 
   <header class="intro" id="top">
@@ -111,42 +119,134 @@
 
   <main>
     <section id="about">
-      <h2>about</h2>
-      <p>I build Raman spectroscopy systems for chemical and biological detection.</p>
-      <p>My work covers the whole instrument: lasers, optics, optomechanics, high-speed data acquisition, and the real-time GPU software that turns raw signal into an answer.</p>
+      <h2>About</h2>
+      <p>I'm a scientist and engineer working across the hardware and software of optical sensing, imaging and spectroscopy systems.</p>
+      <p>We are approaching a future where intelligence is abundant, but limited by the lack of interaction with and feedback from the physical world. My interests are in building agentic instruments, sensors, and imaging systems to accelerate science, medicine, and security.</p>
     </section>
 
-    <section id="background">
-      <h2>background</h2>
+    <section id="experience">
+      <h2>Experience</h2>
       <ul class="rows">
-        <!-- EDIT: put years in the .r column if you want them, e.g. 2021–now -->
         <li>
           <span>Pendar Technologies</span>
-          <span class="r">Senior Scientist</span>
-          <span class="d">Raman spectroscopy for chemical and biological detection and screening</span>
+          <span class="r">2024–now</span>
+          <span class="role">Senior Scientist</span>
         </li>
         <li>
-          <span>MIT</span>
-          <span class="r">PhD, EECS</span>
-          <span class="d">Biomedical optical imaging, Fujimoto group</span>
+          <span>PathAI</span>
+          <span class="r">2022–2023</span>
+          <span class="unit">Imaging Team</span>
+          <span class="role">Contractor</span>
+        </li>
+        <li>
+          <span>Massachusetts Institute of Technology</span>
+          <span class="r">2017–2024</span>
+          <span class="unit">Biomedical Optical Imaging and Biophotonics Group</span>
+          <span class="role">PhD</span>
+        </li>
+        <li>
+          <span>Baylor College of Medicine</span>
+          <span class="r">2016</span>
+          <span class="unit">Department of Urology</span>
+          <span class="role">Intern</span>
         </li>
         <li>
           <span>Genentech</span>
-          <span class="r">Cell culture pilot plant</span>
-          <span class="d">CHO and <i>E. coli</i> processes</span>
+          <span class="r">2015–2016</span>
+          <span class="unit">Pharma Global Technical Development</span>
+          <span class="role">Intern</span>
+        </li>
+        <li>
+          <span>The University of Texas at Austin</span>
+          <span class="r">2014–2017</span>
+          <span class="unit">Biophotonics Laboratory</span>
+          <span class="role">Research Assistant</span>
         </li>
       </ul>
     </section>
 
-    <section id="toolkit">
-      <h2>toolkit</h2>
-      <dl class="kit">
-        <dt>Optics</dt><dd>Laser physics, spectroscopy, optomechanics, SolidWorks</dd>
-        <dt>Hardware</dt><dd>High-speed DAQ, real-time signal pipelines, clinical translation</dd>
-        <dt>Software</dt><dd>C, C++, CUDA, Python, MATLAB</dd>
-      </dl>
+    <section id="education">
+      <h2>Education</h2>
+      <ul class="rows">
+        <li><span>Massachusetts Institute of Technology</span><span class="r">2024</span><span class="role">PhD, Electrical Engineering and Computer Science</span></li>
+        <li><span>Massachusetts Institute of Technology</span><span class="r">2021</span><span class="role">SM, Electrical Engineering and Computer Science</span></li>
+        <li><span>The University of Texas at Austin</span><span class="r">2017</span><span class="role">BS, Biomedical Engineering</span></li>
+      </ul>
     </section>
 
+
+    <section id="publications">
+      <h2>Publications</h2>
+      <ul class="rows" id="pub-list">
+        <li>
+          <a href="https://doi.org/10.1186/s40635-026-00989-z">Esophageal resonance Raman spectroscopy tracks mixed venous oxygenation in experimental shock and hypoxemia</a>
+          <span class="r">2026</span>
+          <span class="role">Intensive Care Medicine Experimental</span>
+          <span class="au">DeWaard T, Keijer BL, Ducatez F, Ferron C, <b>Zhang J</b>, Peng Y, Romfh P, Kheir JN</span>
+        </li>
+        <li>
+          <span>Omniview tethered capsule for non-endoscopic Barrett's esophagus screening in unsedated patients</span>
+          <span class="r">2024</span>
+          <span class="role">Gastroenterology (abstract)</span>
+          <span class="au"><b>Zhang J</b>, Dsouza R, Tan RY, Muttineni D, Traverso G, Xu H, Fujimoto JG, Mashimo H</span>
+        </li>
+        <li>
+          <a href="https://doi.org/10.1038/s41598-022-04784-0">High speed, long range, deep penetration swept source OCT for structural and angiographic imaging of the anterior eye</a>
+          <span class="r">2022</span>
+          <span class="role">Scientific Reports</span>
+          <span class="au">Chen S, Potsaid B, Li Y, Lin J, Hwang Y, Moult EM, <b>Zhang J</b>, Huang D, Fujimoto JG</span>
+        </li>
+        <li>
+          <a href="https://doi.org/10.1088/1361-6463/ac4a9b">Cross-free in both lateral and axial directions for Fourier-domain full-field optical coherence tomography</a>
+          <span class="r">2022</span>
+          <span class="role">Journal of Physics D: Applied Physics</span>
+          <span class="au">Li J, <b>Zhang J</b>, Zhang L, Bai X, Yu Z, Yang Z, Wang Y, Chen X, Zhou X</span>
+        </li>
+        <li>
+          <a href="https://doi.org/10.1364/boe.420394">Multi-MHz MEMS-VCSEL swept-source optical coherence tomography for endoscopic structural and angiographic imaging with miniaturized brushless motor probes</a>
+          <span class="r">2021</span>
+          <span class="role">Biomedical Optics Express</span>
+          <span class="au"><b>Zhang J</b>, Nguyen T, Potsaid B, Jayaraman V, Burgner C, Chen S, Li J, Liang K, Cable A, Traverso G, Mashimo H, Fujimoto JG</span>
+        </li>
+        <li>
+          <a href="https://doi.org/10.1364/boe.409074">Correction of circumferential and longitudinal motion distortion in high-speed catheter/endoscope-based optical coherence tomography</a>
+          <span class="r">2021</span>
+          <span class="role">Biomedical Optics Express</span>
+          <span class="au">Nguyen TH, Ahsen OO, Liang K, <b>Zhang J</b>, Mashimo H, Fujimoto JG</span>
+        </li>
+        <li>
+          <a href="https://doi.org/10.1242/dev.197558">PRSS50 is a testis protease responsible for proper sperm tail formation and function</a>
+          <span class="r">2021</span>
+          <span class="role">Development</span>
+          <span class="au">Scovell JM, Bournat JC, Szafran AT, Solis M, Moore J, Rivera A, Chen CH, <b>Zhang J</b>, Wilken N, Seth A</span>
+        </li>
+        <li>
+          <a href="https://doi.org/10.1136/bmjgast-2020-000444">Tethered capsule en face optical coherence tomography for imaging Barrett's oesophagus in unsedated patients</a>
+          <span class="r">2020</span>
+          <span class="role">BMJ Open Gastroenterology</span>
+          <span class="au">Liang K, Ahsen OO, Murphy A, <b>Zhang J</b>, Nguyen TH, Potsaid BM, Figueiredo M, Huang Q, Mashimo H, Fujimoto JG</span>
+        </li>
+        <li>
+          <a href="https://doi.org/10.1111/andr.12815">Variants in ALX4 and their association with genitourinary defects</a>
+          <span class="r">2020</span>
+          <span class="role">Andrology</span>
+          <span class="au">Chen CH, Bournat JC, Wilken N, Rosenfeld JA, <b>Zhang J</b>, Seth A, Jorgez CJ</span>
+        </li>
+        <li>
+          <a href="https://doi.org/10.1117/1.JBO.23.5.057002">Raman biophysical markers in skin cancer diagnosis</a>
+          <span class="r">2018</span>
+          <span class="role">Journal of Biomedical Optics</span>
+          <span class="au">Feng X, Moy AJ, Nguyen HTM, Zhang Y, <b>Zhang J</b>, Fox MC, Sebastian KR, Reichenberg JS, Markey MK, Tunnell JW</span>
+        </li>
+        <li>
+          <a href="https://doi.org/10.1364/BOE.8.002835">Raman active components of skin cancer</a>
+          <span class="r">2017</span>
+          <span class="role">Biomedical Optics Express</span>
+          <span class="au">Feng X, Moy AJ, Nguyen HTM, <b>Zhang J</b>, Fox MC, Sebastian KR, Reichenberg JS, Markey MK, Tunnell JW</span>
+        </li>
+      </ul>
+      <button class="more" id="pub-more" type="button" aria-controls="pub-list" aria-expanded="false" hidden></button>
+    </section>
   </main>
 
   <footer>
@@ -161,6 +261,27 @@
   const fmt = new Intl.DateTimeFormat('en-US', { timeZone: 'America/New_York', hour: '2-digit', minute: '2-digit', hour12: false, timeZoneName: 'short' });
   const tick = () => { el.textContent = 'Cambridge, MA  ' + fmt.format(new Date()); };
   tick(); setInterval(tick, 30000);
+
+
+  // Publications: show the first 5, reveal the rest on request (all visible without JS)
+  (() => {
+    const SHOW = 5;
+    const extra = [...document.querySelectorAll('#pub-list > li')].slice(SHOW);
+    const btn = document.getElementById('pub-more');
+    if (!extra.length) return;
+    let open = false;
+    const set = () => {
+      extra.forEach(li => li.hidden = !open);
+      btn.textContent = open ? 'Show fewer' : `Show ${extra.length} more`;
+      btn.setAttribute('aria-expanded', open);
+    };
+    btn.hidden = false;
+    btn.addEventListener('click', () => {
+      open = !open; set();
+      if (open) extra[0].querySelector('a, span').focus?.();
+    });
+    set();
+  })();
 </script>
 </body>
 </html>
