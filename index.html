@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Jason Zhang</title>
+<meta name="description" content="Jason Zhang. Senior Scientist at Pendar Technologies working on Raman spectroscopy, optical instruments and real-time software.">
+<meta name="color-scheme" content="light dark">
+<link rel="icon" type="image/png" href="favicon-light.png" media="(prefers-color-scheme: light)">
+<link rel="icon" type="image/png" href="favicon-dark.png" media="(prefers-color-scheme: dark)">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500&family=Geist+Mono:wght@400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #FFFFFF;
+    --fg: #000000;
+    --dim: #6F6F6F;
+    --rule: #E4E4E4;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root { --bg: #000000; --fg: #F2F2F2; --dim: #8A8A8A; --rule: #222222; }
+  }
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--fg);
+    font: 400 15px/1.6 "Geist", system-ui, -apple-system, sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+  a { color: inherit; text-decoration: underline; text-decoration-color: var(--rule); text-underline-offset: 3px; text-decoration-thickness: 1px; }
+  a:hover { text-decoration-color: currentColor; }
+  :focus-visible { outline: 1px solid var(--fg); outline-offset: 3px; }
+
+  .page { max-width: 600px; margin: 0 auto; padding: 48px 24px 64px; }
+
+  nav { display: flex; gap: 20px; flex-wrap: wrap; }
+  nav a { text-decoration: none; color: var(--dim); }
+  nav a:hover, nav a[aria-current] { color: var(--fg); }
+
+  header.intro { margin: 112px 0 96px; display: flex; align-items: center; gap: 20px; }
+  .avatar { display: block; width: 80px; height: 80px; border-radius: 50%; }
+  h1 { margin: 0; font-size: 15px; font-weight: 500; }
+  .intro p { margin: 0; color: var(--dim); }
+
+  section { margin: 0 0 72px; }
+  h2 {
+    margin: 0 0 20px;
+    font: 400 12px/1.6 "Geist Mono", ui-monospace, monospace;
+    color: var(--dim);
+  }
+  p { margin: 0 0 1em; }
+
+  .rows { list-style: none; margin: 0; padding: 0; }
+  .rows li {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 2px 24px;
+    padding: 12px 0;
+    border-top: 1px solid var(--rule);
+  }
+  .rows li:last-child { border-bottom: 1px solid var(--rule); }
+  .rows .r { color: var(--dim); text-align: right; }
+  .rows .d { grid-column: 1 / -1; color: var(--dim); }
+  .rows .ph { color: var(--dim); }
+
+  .kit { margin: 0; display: grid; grid-template-columns: 96px 1fr; gap: 6px 24px; }
+  .kit dt { color: var(--dim); }
+  .kit dd { margin: 0; }
+
+  footer {
+    display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap;
+    padding-top: 16px; border-top: 1px solid var(--rule);
+    font: 400 12px/1.6 "Geist Mono", ui-monospace, monospace; color: var(--dim);
+  }
+
+  @media (max-width: 520px) {
+    nav { gap: 14px; font-size: 14px; }
+    header.intro { margin: 72px 0 64px; }
+    .rows li { grid-template-columns: 1fr; }
+    .rows .r { text-align: left; }
+    .kit { grid-template-columns: 1fr; gap: 0; }
+    .kit dd { margin-bottom: 10px; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <nav aria-label="Sections">
+    <a href="#top" aria-current="page">Home</a>
+    <a href="#about">About</a>
+    <a href="#background">Background</a>
+    <a href="#toolkit">Toolkit</a>
+  </nav>
+
+  <header class="intro" id="top">
+    <picture>
+      <source srcset="avatar.png" media="(prefers-color-scheme: dark)">
+      <img class="avatar" src="avatar-light.png" width="80" height="80" alt="">
+    </picture>
+    <div>
+      <h1>Jason Zhang</h1>
+      <p>Senior Scientist, Pendar Technologies</p>
+      <p>Cambridge, MA</p>
+    </div>
+  </header>
+
+  <main>
+    <section id="about">
+      <h2>about</h2>
+      <p>I build Raman spectroscopy systems for chemical and biological detection.</p>
+      <p>My work covers the whole instrument: lasers, optics, optomechanics, high-speed data acquisition, and the real-time GPU software that turns raw signal into an answer.</p>
+    </section>
+
+    <section id="background">
+      <h2>background</h2>
+      <ul class="rows">
+        <!-- EDIT: put years in the .r column if you want them, e.g. 2021–now -->
+        <li>
+          <span>Pendar Technologies</span>
+          <span class="r">Senior Scientist</span>
+          <span class="d">Raman spectroscopy for chemical and biological detection and screening</span>
+        </li>
+        <li>
+          <span>MIT</span>
+          <span class="r">PhD, EECS</span>
+          <span class="d">Biomedical optical imaging, Fujimoto group</span>
+        </li>
+        <li>
+          <span>Genentech</span>
+          <span class="r">Cell culture pilot plant</span>
+          <span class="d">CHO and <i>E. coli</i> processes</span>
+        </li>
+      </ul>
+    </section>
+
+    <section id="toolkit">
+      <h2>toolkit</h2>
+      <dl class="kit">
+        <dt>Optics</dt><dd>Laser physics, spectroscopy, optomechanics, SolidWorks</dd>
+        <dt>Hardware</dt><dd>High-speed DAQ, real-time signal pipelines, clinical translation</dd>
+        <dt>Software</dt><dd>C, C++, CUDA, Python, MATLAB</dd>
+      </dl>
+    </section>
+
+  </main>
+
+  <footer>
+    <span>Jason Zhang</span>
+    <span id="clock">Cambridge, MA</span>
+  </footer>
+</div>
+
+<script>
+  // Local time in Cambridge, updated each minute
+  const el = document.getElementById('clock');
+  const fmt = new Intl.DateTimeFormat('en-US', { timeZone: 'America/New_York', hour: '2-digit', minute: '2-digit', hour12: false, timeZoneName: 'short' });
+  const tick = () => { el.textContent = 'Cambridge, MA  ' + fmt.format(new Date()); };
+  tick(); setInterval(tick, 30000);
+</script>
+</body>
+</html>
