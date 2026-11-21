@@ -6,8 +6,11 @@
 <title>Jason Zhang</title>
 <meta name="description" content="Jason Zhang. Scientist and engineer building optical sensing, imaging and spectroscopy systems. Senior Scientist at Pendar Technologies; PhD in Electrical Engineering and Computer Science from the Massachusetts Institute of Technology.">
 <meta name="color-scheme" content="light dark">
-<link rel="icon" type="image/png" href="favicon-light.png" media="(prefers-color-scheme: light)">
-<link rel="icon" type="image/png" href="favicon-dark.png" media="(prefers-color-scheme: dark)">
+<script>
+  try { const t = localStorage.getItem('theme'); if (t === 'light' || t === 'dark') document.documentElement.dataset.theme = t; } catch (e) {}
+</script>
+<link rel="icon" type="image/png" href="favicon-light.png" media="(prefers-color-scheme: light)" id="icon-light">
+<link rel="icon" type="image/png" href="favicon-dark.png" media="(prefers-color-scheme: dark)" id="icon-dark">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -19,8 +22,10 @@
     --dim: #6F6F6F;
     --rule: #E4E4E4;
   }
+  :root { color-scheme: light; }
+  :root[data-theme="dark"] { --bg: #000000; --fg: #F2F2F2; --dim: #8A8A8A; --rule: #222222; color-scheme: dark; }
   @media (prefers-color-scheme: dark) {
-    :root { --bg: #000000; --fg: #F2F2F2; --dim: #8A8A8A; --rule: #222222; }
+    :root:not([data-theme="light"]) { --bg: #000000; --fg: #F2F2F2; --dim: #8A8A8A; --rule: #222222; color-scheme: dark; }
   }
   * { box-sizing: border-box; }
   html { -webkit-text-size-adjust: 100%; }
@@ -37,7 +42,14 @@
 
   .page { max-width: 600px; margin: 0 auto; padding: 48px 24px 64px; }
 
-  nav { display: flex; gap: 20px; flex-wrap: wrap; }
+  .bar { display: flex; align-items: baseline; gap: 20px; }
+  nav { display: flex; gap: 20px; flex-wrap: wrap; flex: 1; min-width: 0; }
+  .theme {
+    padding: 0; border: 0; background: none; cursor: pointer; flex: none;
+    color: var(--dim); line-height: 0; align-self: center;
+  }
+  .theme svg { display: block; }
+  .theme:hover { color: var(--fg); }
   nav a { text-decoration: none; color: var(--dim); }
   nav a:hover, nav a[aria-current] { color: var(--fg); }
 
@@ -90,7 +102,8 @@
   }
 
   @media (max-width: 520px) {
-    nav { gap: 12px; font-size: 13px; flex-wrap: nowrap; overflow-x: auto; white-space: nowrap; scrollbar-width: none; }
+    .bar { gap: 12px; }
+    nav { gap: 10px; font-size: 13px; flex-wrap: nowrap; overflow-x: auto; white-space: nowrap; scrollbar-width: none; }
     header.intro { margin: 72px 0 64px; }
     .rows li { gap: 0 16px; }
   }
@@ -99,6 +112,7 @@
 <body>
 <div class="page">
 
+  <div class="bar">
   <nav aria-label="Sections">
     <a href="#top" aria-current="page">Home</a>
     <a href="#about">About</a>
@@ -106,10 +120,12 @@
     <a href="#education">Education</a>
     <a href="#publications">Publications</a>
   </nav>
+  <button class="theme" id="theme" type="button" aria-label="Switch to dark mode" hidden><svg viewBox="0 0 16 16" width="15" height="15" aria-hidden="true"><circle cx="8" cy="8" r="6.5" fill="none" stroke="currentColor" stroke-width="1.2"/><path d="M8 1.5a6.5 6.5 0 0 1 0 13z" fill="currentColor"/></svg></button>
+  </div>
 
   <header class="intro" id="top">
     <picture>
-      <source srcset="avatar.png" media="(prefers-color-scheme: dark)">
+      <source srcset="avatar.png" media="(prefers-color-scheme: dark)" id="avatar-dark">
       <img class="avatar" src="avatar-light.png" width="80" height="80" alt="">
     </picture>
     <div>
@@ -133,7 +149,7 @@
           <span>Pendar Technologies</span>
           <span class="r">2024–now</span>
           <span class="role">Senior Scientist</span>
-          <span class="kw">Raman spectroscopy, clinical devices, screening software, Monte Carlo</span>
+          <span class="kw">Raman spectroscopy, clinical devices/instruments, security screening software, hardware control stack</span>
         </li>
         <li>
           <span>PathAI</span>
@@ -147,28 +163,28 @@
           <span class="r">2017–2024</span>
           <span class="unit">Biomedical Optical Imaging and Biophotonics Group</span>
           <span class="role">PhD</span>
-          <span class="kw">Capsule endoscopy, swept-source OCT, clinical studies</span>
+          <span class="kw">Endoscopic imaging probes/capsules, swept-source optical coherence tomography, high-speed DAQ, animal and clinical studies</span>
         </li>
         <li>
           <span>Baylor College of Medicine</span>
           <span class="r">2016</span>
           <span class="unit">Department of Urology</span>
           <span class="role">Intern</span>
-          <span class="kw">Genetics, immunofluorescence, electron microscopy, molecular biology</span>
+          <span class="kw">Molecular biology, genetics, bioinformatics, genitourinary pathology</span>
         </li>
         <li>
           <span>Genentech</span>
           <span class="r">2015–2016</span>
           <span class="unit">Pharma Global Technical Development</span>
           <span class="role">Intern</span>
-          <span class="kw">Cell culture, bioprocess development, CHO and <i>E. coli</i></span>
+          <span class="kw">Bioprocess development, assay development, CHO and <i>E. coli</i> cell culture, workflow automation</span>
         </li>
         <li>
           <span>The University of Texas at Austin</span>
           <span class="r">2014–2017</span>
           <span class="unit">Biophotonics Laboratory</span>
           <span class="role">Research Assistant</span>
-          <span class="kw">Raman spectroscopy, SERS nanoparticles, confocal microscopy, LabVIEW</span>
+          <span class="kw">Confocal Raman microscopy, SERS, biophysical models of skin cancer</span>
         </li>
       </ul>
     </section>
@@ -289,6 +305,34 @@
       if (open) extra[0].querySelector('a, span').focus?.();
     });
     set();
+  })();
+
+  // Light/dark toggle: follows the device until the visitor picks, then remembers the choice
+  (() => {
+    const root = document.documentElement;
+    const btn = document.getElementById('theme');
+    const sys = matchMedia('(prefers-color-scheme: dark)');
+    const DARK_Q = '(prefers-color-scheme: dark)', LIGHT_Q = '(prefers-color-scheme: light)';
+    const current = () => root.dataset.theme || (sys.matches ? 'dark' : 'light');
+    const sync = () => {
+      const forced = root.dataset.theme;   // 'light' | 'dark' | undefined (follow device)
+      const dark = current() === 'dark';
+      // avatar and tab icon follow the chosen theme, not just the device
+      document.getElementById('avatar-dark').media = forced ? (dark ? 'all' : 'not all') : DARK_Q;
+      document.getElementById('icon-dark').media   = forced ? (dark ? 'all' : 'not all') : DARK_Q;
+      document.getElementById('icon-light').media  = forced ? (dark ? 'not all' : 'all') : LIGHT_Q;
+      btn.title = dark ? 'Light mode' : 'Dark mode';
+      btn.setAttribute('aria-label', dark ? 'Switch to light mode' : 'Switch to dark mode');
+    };
+    btn.hidden = false;
+    btn.addEventListener('click', () => {
+      const next = current() === 'dark' ? 'light' : 'dark';
+      root.dataset.theme = next;
+      try { localStorage.setItem('theme', next); } catch (e) {}
+      sync();
+    });
+    sys.addEventListener?.('change', sync);
+    sync();
   })();
 </script>
 </body>
