@@ -53,7 +53,7 @@
   nav a { text-decoration: none; color: var(--dim); }
   nav a:hover, nav a[aria-current] { color: var(--fg); }
 
-  header.intro { margin: 112px 0 96px; display: flex; align-items: center; gap: 20px; }
+  header.intro { margin: 48px 0 44px; display: flex; align-items: center; gap: 20px; }
   .avatar { display: block; width: 80px; height: 80px; border-radius: 50%; }
   h1 { margin: 0; font-size: 15px; font-weight: 500; }
   .intro p { margin: 0; color: var(--dim); }
@@ -80,10 +80,9 @@
   .rows li[hidden] { display: none; }
   .rows .r { color: var(--dim); text-align: right; }
   .rows .d { grid-column: 1 / -1; color: var(--dim); }
-  .rows .role { grid-column: 1 / -1; color: var(--dim); }
-  .rows .kw { grid-column: 1 / -1; margin-top: 3px; font: 400 12px/1.5 "Geist Mono", ui-monospace, monospace; color: var(--dim); }
-  .rows .unit { grid-column: 1 / -1; font-size: 13px; line-height: 1.4; color: var(--dim); }
-  .rows .au { grid-column: 1 / -1; color: var(--dim); font-size: 13.5px; }
+  .rows .unit, .rows .role, .rows .kw, .rows .au { grid-column: 1 / -1; font-size: 13px; line-height: 1.5; color: var(--dim); }
+  .rows .role { color: var(--fg); }
+  #publications .rows .role { color: var(--dim); }
   .rows .au b { color: var(--fg); font-weight: 500; }
 
 
@@ -104,7 +103,7 @@
   @media (max-width: 520px) {
     .bar { gap: 12px; }
     nav { gap: 10px; font-size: 13px; flex-wrap: nowrap; overflow-x: auto; white-space: nowrap; scrollbar-width: none; }
-    header.intro { margin: 72px 0 64px; }
+    header.intro { margin: 36px 0 36px; }
     .rows li { gap: 0 16px; }
   }
 </style>
@@ -152,17 +151,10 @@
           <span class="kw">Raman spectroscopy, clinical devices/instruments, security screening software, hardware control stack</span>
         </li>
         <li>
-          <span>PathAI</span>
-          <span class="r">2022–2023</span>
-          <span class="unit">Imaging Team</span>
-          <span class="role">Contractor</span>
-          <span class="kw">Digital pathology, whole-slide imaging, computer vision</span>
-        </li>
-        <li>
           <span>Massachusetts Institute of Technology</span>
           <span class="r">2017–2024</span>
           <span class="unit">Biomedical Optical Imaging and Biophotonics Group</span>
-          <span class="role">PhD</span>
+          <span class="role">PhD Candidate</span>
           <span class="kw">Endoscopic imaging probes/capsules, swept-source optical coherence tomography, high-speed DAQ, animal and clinical studies</span>
         </li>
         <li>
