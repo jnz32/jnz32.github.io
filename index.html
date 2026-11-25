@@ -91,26 +91,6 @@
 
 
 
-  /* experience: vertical timeline, now at top, 2014 at bottom */
-  .exp { display: grid; grid-template-columns: minmax(0, 1fr) 132px; gap: 0 28px; }
-  .vt { position: relative; margin: 8px 0; }
-  .vt::before { content: ""; position: absolute; top: 0; bottom: 0; left: 34px; width: 1px; background: var(--rule); }
-  .vt .tick { position: absolute; left: 0; width: 38px; transform: translateY(-50%);
-    font: 400 11px/1 "Geist Mono", ui-monospace, monospace; color: var(--dim); }
-  .vt .tick::after { content: ""; position: absolute; right: 0; top: 50%; width: 5px; height: 1px; background: var(--rule); }
-  .vt .seg { position: absolute; width: 5px; min-height: 5px; border-radius: 3px; background: var(--fg); transition: opacity .15s; }
-  .vt .seg[data-lane="0"] { left: 42px; }
-  .vt .seg[data-lane="1"] { left: 51px; }
-  .vt .seg em {
-    position: absolute; top: -1px; left: calc(66px - var(--x)); white-space: nowrap;
-    font: normal 400 11px/1.2 "Geist Mono", ui-monospace, monospace; color: var(--dim); transition: color .15s;
-  }
-  .vt .seg[data-lane="0"] em { --x: 42px; }
-  .vt .seg[data-lane="1"] em { --x: 51px; }
-  .exp.hl .vt .seg:not(.on) { opacity: .2; }
-  .exp.hl .vt .seg.on em { color: var(--fg); }
-  .exp.hl .rows li[data-tl]:not(.on) { opacity: .45; }
-  .rows li[data-tl] { transition: opacity .15s; outline-offset: -1px; }
 
   .more {
     margin-top: 16px; padding: 0; border: 0; background: none; cursor: pointer;
@@ -130,14 +110,6 @@
     nav { gap: 10px; font-size: 13px; flex-wrap: nowrap; overflow-x: auto; white-space: nowrap; scrollbar-width: none; }
     header.intro { margin: 36px 0 36px; }
     .rows li { gap: 0 16px; }
-    .exp { grid-template-columns: minmax(0, 1fr) 112px; gap: 0 12px; }
-    .vt::before { left: 28px; }
-    .vt .tick { width: 32px; }
-    .vt .seg[data-lane="0"] { left: 34px; }
-    .vt .seg[data-lane="1"] { left: 42px; }
-    .vt .seg[data-lane="0"] em { --x: 34px; }
-    .vt .seg[data-lane="1"] em { --x: 42px; }
-    .vt .seg em { left: calc(54px - var(--x)); font-size: 10px; }
   }
 </style>
 </head>
@@ -148,8 +120,6 @@
   <nav aria-label="Sections">
     <a href="#top" aria-current="page">Home</a>
     <a href="#about">About</a>
-    <a href="#experience">Experience</a>
-    <a href="#education">Education</a>
     <a href="#publications">Publications</a>
   </nav>
   <button class="theme" id="theme" type="button" aria-label="Switch to dark mode" hidden><svg viewBox="0 0 16 16" width="15" height="15" aria-hidden="true"><circle cx="8" cy="8" r="6.5" fill="none" stroke="currentColor" stroke-width="1.2"/><path d="M8 1.5a6.5 6.5 0 0 1 0 13z" fill="currentColor"/></svg></button>
@@ -172,61 +142,11 @@
     <section id="about">
       <h2>About</h2>
       <p>I'm a scientist and engineer working across the hardware and software of optical sensing, imaging, and spectroscopy systems. My interests are in building agent-native tools and technologies of the future to accelerate science, medicine, and security.</p>
+      <p>I received my PhD and SM at MIT, where I had the great privilege of working with <a href="https://www.eecs.mit.edu/people/james-fujimoto/">Prof. James G. Fujimoto</a> and <a href="https://connects.catalyst.harvard.edu/Profiles/display/Person/25910">Dr. Hiroshi Mashimo</a> on developing <a href="https://www.laserfocusworld.com/lasers-sources/article/14201572/mems-swept-wavelength-laser-enables-new-oct-capabilities">optical coherence tomography and other imaging methods for the gut</a>.</p>
+      <p>I am currently a scientist at <a href="https://www.pendar.com/">Pendar Technologies</a>.</p>
     </section>
 
-    <section id="experience">
-      <h2>Experience</h2>
-      <div class="exp">
-      <ul class="rows">
-        <li data-tl="pendar" tabindex="0">
-          <span>Pendar Technologies</span>
-          <span class="role">Senior Scientist</span>
-        </li>
-        <li data-tl="mit" tabindex="0">
-          <span>Massachusetts Institute of Technology</span>
-          <span class="unit">Biomedical Optical Imaging and Biophotonics Group</span>
-          <span class="role">PhD Candidate</span>
-        </li>
-        <li data-tl="pathai" tabindex="0">
-          <span>PathAI</span>
-          <span class="unit">Imaging Team</span>
-          <span class="role">Contractor</span>
-        </li>
-        <li data-tl="ut" tabindex="0">
-          <span>The University of Texas at Austin</span>
-          <span class="unit">Biophotonics Laboratory</span>
-          <span class="role">Research Assistant</span>
-        </li>
-        <li data-tl="bcm" tabindex="0">
-          <span>Baylor College of Medicine</span>
-          <span class="unit">Department of Urology</span>
-          <span class="role">Intern</span>
-        </li>
-        <li data-tl="gne" tabindex="0">
-          <span>Genentech</span>
-          <span class="unit">Pharma Global Technical Development</span>
-          <span class="role">Intern</span>
-        </li>
-      </ul>
-      <div class="vt" aria-hidden="true">
-        <span class="seg" data-tl="pendar" data-lane="0" data-from="2024-11" data-to="now"><em>Pendar</em></span>
-        <span class="seg" data-tl="pathai" data-lane="1" data-from="2022-09" data-to="2023-05"><em>PathAI</em></span>
-        <span class="seg" data-tl="mit" data-lane="0" data-from="2017-08" data-to="2024-09"><em>MIT</em></span>
-        <span class="seg" data-tl="bcm" data-lane="1" data-from="2016-06" data-to="2016-08"><em>Baylor</em></span>
-        <span class="seg" data-tl="gne" data-lane="1" data-from="2015-06" data-to="2015-09"><em>Genentech</em></span>
-        <span class="seg" data-tl="ut" data-lane="0" data-from="2014-02" data-to="2017-07"><em>UT Austin</em></span>
-      </div>
-      </div>
-    </section>
 
-    <section id="education">
-      <h2>Education</h2>
-      <ul class="rows">
-        <li><span>Massachusetts Institute of Technology</span><span class="r">2024</span><span class="role">PhD, Electrical Engineering and Computer Science</span></li>
-        <li><span>Massachusetts Institute of Technology</span><span class="r">2021</span><span class="role">SM, Electrical Engineering and Computer Science</span></li>
-        <li><span>The University of Texas at Austin</span><span class="r">2017</span><span class="role">BS, Biomedical Engineering</span></li>
-      </ul>
-    </section>
 
 
     <section id="publications">
@@ -360,35 +280,6 @@
   })();
 
 
-  // Experience: vertical timeline (now at top). Hover or focus a role to highlight its span.
-  (() => {
-    const exp = document.querySelector('.exp');
-    const vt = exp.querySelector('.vt');
-    const yr = v => { if (v === 'now') { const d = new Date(); return d.getFullYear() + d.getMonth() / 12; }
-                      const [y, m] = v.split('-').map(Number); return y + (m - 1) / 12; };
-    const MIN = 2014, MAX = yr('now') + 1 / 12;
-    const pos = v => (MAX - v) / (MAX - MIN) * 100;          // % from top
-    vt.querySelectorAll('.seg').forEach(seg => {
-      const a = yr(seg.dataset.from), b = seg.dataset.to === 'now' ? MAX : yr(seg.dataset.to) + 1 / 12;
-      seg.style.top = `calc(${pos(b)}% + 3px)`;
-      seg.style.height = `calc(${pos(a) - pos(b)}% - 6px)`;   // visible gap between back-to-back roles
-    });
-    [2016, 2020, 2024].forEach(y => {
-      const t = document.createElement('span');
-      t.className = 'tick'; t.textContent = y; t.style.top = pos(y) + '%';
-      vt.prepend(t);
-    });
-    const set = k => {
-      exp.classList.toggle('hl', !!k);
-      exp.querySelectorAll('[data-tl]').forEach(el => el.classList.toggle('on', el.dataset.tl === k));
-    };
-    exp.querySelectorAll('[data-tl]').forEach(el => {
-      el.addEventListener('mouseenter', () => set(el.dataset.tl));
-      el.addEventListener('mouseleave', () => set(null));
-      el.addEventListener('focus', () => set(el.dataset.tl));
-      el.addEventListener('blur', () => set(null));
-    });
-  })();
 </script>
 </body>
 </html>
